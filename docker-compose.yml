@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
     environment:
       # Server
-      PORT: 6001
+      PORT: 6011
       NODE_ENV: ${NODE_ENV:-production}
       BACKEND_URL: ${BACKEND_URL:-http://10.250.0.68:6001}
 
@@ -83,7 +83,7 @@ services:
       EXTERNAL_API_KEY: ${EXTERNAL_API_KEY:-dev-external-key-change-in-production}
 
     ports:
-      - "6001:6001"
+      - "6011:6011"
     volumes:
       - backend_uploads:/app/uploads
       - backend_logs:/app/logs
@@ -124,7 +124,7 @@ services:
       REACT_APP_SHOW_RULES_BANNER: ${REACT_APP_SHOW_RULES_BANNER:-false}
       REACT_APP_SHOW_CRM: ${REACT_APP_SHOW_CRM:-true}
     ports:
-      - "${FRONTEND_PORT:-6002}:80"
+      - "${FRONTEND_PORT:-6012}:80"
     networks:
       - traefik
     depends_on:

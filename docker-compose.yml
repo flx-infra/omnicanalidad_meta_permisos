@@ -6,13 +6,13 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: omnicanalidad-backend
+    container_name: omnicanalidad-backend-permisos
     restart: unless-stopped
     environment:
       # Server
       PORT: 6011
       NODE_ENV: ${NODE_ENV:-production}
-      BACKEND_URL: ${BACKEND_URL:-http://10.250.0.68:6001}
+      BACKEND_URL: ${BACKEND_URL:-http://10.250.0.68:6011}
 
       # Database - connect to external MySQL service
       DB_HOST: ${DB_HOST}
@@ -121,11 +121,11 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: omnicanalidad-frontend
+    container_name: omnicanalidad-frontend-permisos
     restart: unless-stopped
     command: ["nginx", "-g", "daemon off;"]
     environment:
-      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:6001/api}
+      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:6011/api}
       REACT_APP_SHOW_WORKFLOWS: ${REACT_APP_SHOW_WORKFLOWS:-true}
       REACT_APP_SHOW_RULES_BANNER: ${REACT_APP_SHOW_RULES_BANNER:-false}
       REACT_APP_SHOW_CRM: ${REACT_APP_SHOW_CRM:-true}

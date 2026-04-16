@@ -78,7 +78,7 @@ services:
       ERP_API_TIMEOUT: ${ERP_API_TIMEOUT:-30000}
 
       # Development
-      FRONTEND_URL: ${FRONTEND_URL:-http://10.250.0.68:6002}
+      FRONTEND_URL: ${FRONTEND_URL:-http://10.250.0.68:6012}
       LOG_LEVEL: ${LOG_LEVEL:-info}
       EXTERNAL_API_KEY: ${EXTERNAL_API_KEY:-dev-external-key-change-in-production}
 
